@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>She Said Yes 💖</title>
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #a1ffce, #faffd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+        }
+        p {
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>She Said YES 💖</h1>
+        <p>
+            Aarya, you didn’t just say yes…<br>
+            you chose Ratndeep forever ❤️
+        </p>
+        <p>This is just the beginning 💍✨</p>
+    </div>
+</body>
+</html>

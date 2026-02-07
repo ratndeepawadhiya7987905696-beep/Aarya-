@@ -1,0 +1,82 @@
+const text = "Aarya Chourasia 💕\nWill you be mine?";
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typeText").innerHTML +=
+            text[index] === "\n" ? "<br>" : text[index];
+        index++;
+        setTimeout(typeEffect, 70);
+    }
+}
+typeEffect();
+
+let messageIndex = 0;
+let noClickCount = 0;
+
+const messages = [
+    "Are you sure? 😏",
+    "Haha no escape 😜",
+    "Try again 🙃",
+    "Just say yes 💖",
+    "My heart says yes 😍"
+];
+
+const noButton = document.querySelector('.no-button');
+const yesButton = document.querySelector('.yes-button');
+const heartsContainer = document.querySelector('.hearts');
+const music = document.getElementById('bgMusic');
+
+// Mobile-safe music play
+document.body.addEventListener('click', () => {
+    music.play();
+}, { once: true });
+
+noButton.addEventListener('mouseover', moveNoButton);
+noButton.addEventListener('click', changeNoText);
+yesButton.addEventListener('click', goToYesPage);
+
+function moveNoButton() {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+    noButton.style.left = x + 'px';
+    noButton.style.top = y + 'px';
+}
+
+function changeNoText() {
+    noButton.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
+    noClickCount++;
+
+    if (noClickCount >= 5) {
+        noButton.style.display = "none";
+    }
+}
+
+function goToYesPage() {
+    for (let i = 0; i < 60; i++) {
+        const heart = document.createElement('span');
+        heart.innerHTML = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+        heart.style.position = 'fixed';
+        heart.style.top = '50%';
+        heart.style.animation = 'float 3s linear';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+    }
+
+    setTimeout(() => {
+        window.location.href = "yes_page.html";
+    }, 1200);
+}
+
+// Floating hearts
+setInterval(() => {
+    const heart = document.createElement('span');
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+    heartsContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
