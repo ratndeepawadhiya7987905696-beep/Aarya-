@@ -24,10 +24,12 @@ h1 {
     font-style: italic;
     margin-bottom: 20px;
 }
-
-.buttons {
-    position: relative;
-    height: 80px;
+button {
+    padding: 16px 32px;
+    font-size: 20px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
 }
 
 button {
